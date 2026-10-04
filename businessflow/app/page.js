@@ -19,7 +19,7 @@ export default function Home(){
       <div className="heroCopy">
         <div className="kicker">BUSINESS SOFTWARE FOR LOCAL BUSINESSES</div>
         <h1>Your business.<br/>Booked online.</h1>
-        <p>BusinessFlow gives salons, barbers, gyms and service businesses the tools to manage customers, bookings, memberships, payments and daily operations from one simple system.</p>
+        <p>BusinessFlow gives salons, barbers, gyms, marts and service businesses the tools to manage customers, bookings, memberships, payments and daily operations from one simple system.</p>
         <div className="heroActions">
           <a className="btn" href="#contact">Get BusinessFlow</a>
           <a className="btn light" href="#product">See what you get</a>
@@ -46,11 +46,11 @@ export default function Home(){
     </section>
 
     <section className="logoStrip">
-      <div className="wrap industries"><span>Built for</span><b>BARBERS</b><b>SALONS</b><b>GYMS</b><b>CLINICS</b><b>WORKSHOPS</b><b>CONSULTANTS</b></div>
+      <div className="wrap industries"><span>Built for</span><b>BARBERS</b><b>SALONS</b><b>GYMS</b><b>CLINICS</b><b>MARTS</b><b>WORKSHOPS</b><b>CONSULTANTS</b></div>
     </section>
 
     <section id="product" className="section wrap">
-      <div className="sectionHead"><div className="kicker">THE PRODUCT</div><h2>One system for bookings, customers and memberships.</h2><p>No complicated software. No clutter. BusinessFlow adapts to the type of local business you run.</p></div>
+      <div className="sectionHead"><div className="kicker">THE PRODUCT</div><h2>One system for bookings, memberships and retail operations.</h2><p>No complicated software. No clutter. BusinessFlow adapts to the type of local business you run.</p></div>
       <div className="featureGrid">
         <article><div className="featureIcon">01</div><h3>Branded booking page</h3><p>Your own clean customer-facing page with services, prices, timing and booking.</p></article>
         <article><div className="featureIcon">02</div><h3>Owner dashboard</h3><p>See bookings, customers and expected revenue from one simple dashboard.</p></article>
@@ -91,6 +91,36 @@ export default function Home(){
       </div>
     </section>
 
+
+    <section className="retailSection">
+      <div className="wrap retailGrid">
+        <div className="retailPreview">
+          <div className="retailPreviewTop"><div><small>CITY MART</small><b>Retail overview</b></div><span>Live</span></div>
+          <div className="retailMetrics">
+            <div><small>Today sales</small><b>Rs 185k</b><span>247 bills</span></div>
+            <div><small>Low stock</small><b>17</b><span>Needs reorder</span></div>
+            <div><small>Suppliers due</small><b>Rs 73k</b><span>4 suppliers</span></div>
+          </div>
+          <div className="retailMiniTable">
+            <div className="retailMiniHead"><span>Product</span><span>Stock</span><span>Status</span></div>
+            {[
+              ['Milk 1L','8','Low'],
+              ['Cooking Oil 5L','42','Good'],
+              ['Rice 5kg','5','Low'],
+              ['Shampoo 360ml','31','Good']
+            ].map(x=><div className="retailMiniRow" key={x[0]}><span><b>{x[0]}</b><small>Inventory item</small></span><span>{x[1]}</span><em className={x[2]==='Good'?'good':'low'}>{x[2]}</em></div>)}
+          </div>
+        </div>
+        <div className="retailCopy">
+          <div className="kicker">BUSINESSFLOW FOR RETAIL</div>
+          <h2>Sales, stock and suppliers in one dashboard.</h2>
+          <p>For marts, mini supermarkets and grocery stores: track products, stock levels, low-stock items, supplier balances and daily sales without relying on paper registers.</p>
+          <div className="retailChecks"><span>POS-ready product catalog</span><span>Stock & low-stock alerts</span><span>Supplier tracking</span><span>Daily sales overview</span></div>
+          <a className="btn" href="/demo-retail">View retail demo →</a>
+        </div>
+      </div>
+    </section>
+
     <section id="workflow" className="workflowSection">
       <div className="wrap workflowGrid">
         <div><div className="kicker">HOW IT WORKS</div><h2>We set it up. You start taking bookings.</h2></div>
@@ -106,7 +136,7 @@ export default function Home(){
     <section id="pricing" className="section wrap">
       <div className="sectionHead centered"><div className="kicker">PRICING</div><h2>Simple plans for working businesses.</h2><p>Payment and activation are handled directly with us on WhatsApp.</p></div>
       <div className="priceGrid">
-        <article><small>STARTER</small><h3>Rs 1,499<span>/month</span></h3><p>For an independent salon, barber, gym or service business.</p><ul><li>Professional booking page</li><li>Unlimited bookings</li><li>Customer dashboard</li><li>Services & prices</li><li>Mobile access</li></ul><a className="btn light full" href="#contact">Get Starter</a></article>
+        <article><small>STARTER</small><h3>Rs 1,499<span>/month</span></h3><p>For an independent salon, barber, gym, mart or service business.</p><ul><li>Professional booking page</li><li>Unlimited bookings</li><li>Customer dashboard</li><li>Services & prices</li><li>Mobile access</li></ul><a className="btn light full" href="#contact">Get Starter</a></article>
         <article className="priceFeatured"><div className="recommended">POPULAR</div><small>PRO</small><h3>Rs 2,999<span>/month</span></h3><p>For businesses that need more control and staff support.</p><ul><li>Everything in Starter</li><li>Multiple staff</li><li>Advanced reporting</li><li>Priority support</li><li>Growth features</li></ul><a className="btn full" href="#contact">Get Pro</a></article>
       </div>
     </section>
