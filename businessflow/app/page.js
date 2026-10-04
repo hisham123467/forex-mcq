@@ -17,14 +17,14 @@ export default function Home(){
 
     <section className="heroReal wrap">
       <div className="heroCopy">
-        <div className="kicker">BOOKING SOFTWARE FOR LOCAL BUSINESSES</div>
+        <div className="kicker">BUSINESS SOFTWARE FOR LOCAL BUSINESSES</div>
         <h1>Your business.<br/>Booked online.</h1>
-        <p>BusinessFlow gives salons, barbers and service businesses a professional booking page, customer records and an owner dashboard — all in one simple system.</p>
+        <p>BusinessFlow gives salons, barbers, gyms and service businesses the tools to manage customers, bookings, memberships, payments and daily operations from one simple system.</p>
         <div className="heroActions">
           <a className="btn" href="#contact">Get BusinessFlow</a>
           <a className="btn light" href="#product">See what you get</a>
         </div>
-        <div className="trustLine"><span>Online bookings</span><span>Customer management</span><span>Mobile ready</span></div>
+        <div className="trustLine"><span>Online bookings</span><span>Membership tracking</span><span>Mobile ready</span></div>
       </div>
       <div className="productShot">
         <div className="shotTop"><div className="shotLogo">RC</div><div><small>TODAY</small><strong>Royal Cuts</strong></div><span className="status">Online</span></div>
@@ -46,18 +46,48 @@ export default function Home(){
     </section>
 
     <section className="logoStrip">
-      <div className="wrap industries"><span>Built for</span><b>BARBERS</b><b>SALONS</b><b>CLINICS</b><b>WORKSHOPS</b><b>CONSULTANTS</b></div>
+      <div className="wrap industries"><span>Built for</span><b>BARBERS</b><b>SALONS</b><b>GYMS</b><b>CLINICS</b><b>WORKSHOPS</b><b>CONSULTANTS</b></div>
     </section>
 
     <section id="product" className="section wrap">
-      <div className="sectionHead"><div className="kicker">THE PRODUCT</div><h2>Everything needed to run bookings professionally.</h2><p>No complicated software. No clutter. Just the tools a local business uses every day.</p></div>
+      <div className="sectionHead"><div className="kicker">THE PRODUCT</div><h2>One system for bookings, customers and memberships.</h2><p>No complicated software. No clutter. BusinessFlow adapts to the type of local business you run.</p></div>
       <div className="featureGrid">
         <article><div className="featureIcon">01</div><h3>Branded booking page</h3><p>Your own clean customer-facing page with services, prices, timing and booking.</p></article>
         <article><div className="featureIcon">02</div><h3>Owner dashboard</h3><p>See bookings, customers and expected revenue from one simple dashboard.</p></article>
         <article><div className="featureIcon">03</div><h3>Customer records</h3><p>Keep client details and booking history organised automatically.</p></article>
         <article><div className="featureIcon">04</div><h3>Services & pricing</h3><p>Manage services, duration and pricing without rebuilding the website.</p></article>
         <article><div className="featureIcon">05</div><h3>WhatsApp friendly</h3><p>Share one clean link on WhatsApp, Instagram and Google Business Profile.</p></article>
-        <article><div className="featureIcon">06</div><h3>Mobile first</h3><p>Both the business owner and customers can use it comfortably from a phone.</p></article>
+        <article><div className="featureIcon">06</div><h3>Membership & renewals</h3><p>For gyms, track members, monthly fees, renewal dates and payment status from one place.</p></article>
+      </div>
+    </section>
+
+
+    <section className="gymSection">
+      <div className="wrap gymGrid">
+        <div className="gymCopy">
+          <div className="kicker">BUSINESSFLOW FOR GYMS</div>
+          <h2>Know who paid. Know who needs to renew.</h2>
+          <p>Gym owners get a dedicated membership view to track active members, monthly payments, overdue renewals and expected membership revenue.</p>
+          <div className="gymChecks"><span>Member database</span><span>Paid / unpaid status</span><span>Monthly renewal dates</span><span>Payment history</span></div>
+          <a className="btn" href="/demo-gym">View gym demo →</a>
+        </div>
+        <div className="gymPreview">
+          <div className="gymPreviewTop"><div><small>IRON HOUSE FITNESS</small><b>Membership overview</b></div><span>October</span></div>
+          <div className="gymMetrics">
+            <div><small>Total members</small><b>146</b><span>+8 this month</span></div>
+            <div><small>Paid</small><b>112</b><span>76.7% collected</span></div>
+            <div><small>Renewals due</small><b>19</b><span>Next 7 days</span></div>
+          </div>
+          <div className="gymMiniTable">
+            <div className="gymMiniHead"><span>Member</span><span>Renewal</span><span>Status</span></div>
+            {[
+              ['Ahmed Raza','08 Oct','Paid'],
+              ['Saad Khan','09 Oct','Due'],
+              ['Hamza Ali','11 Oct','Paid'],
+              ['Usman Tariq','12 Oct','Due']
+            ].map(x=><div className="gymMiniRow" key={x[0]}><span><b>{x[0]}</b><small>Monthly</small></span><span>{x[1]}</span><em className={x[2]==='Paid'?'paid':'due'}>{x[2]}</em></div>)}
+          </div>
+        </div>
       </div>
     </section>
 
@@ -76,7 +106,7 @@ export default function Home(){
     <section id="pricing" className="section wrap">
       <div className="sectionHead centered"><div className="kicker">PRICING</div><h2>Simple plans for working businesses.</h2><p>Payment and activation are handled directly with us on WhatsApp.</p></div>
       <div className="priceGrid">
-        <article><small>STARTER</small><h3>Rs 1,499<span>/month</span></h3><p>For an independent salon, barber or service business.</p><ul><li>Professional booking page</li><li>Unlimited bookings</li><li>Customer dashboard</li><li>Services & prices</li><li>Mobile access</li></ul><a className="btn light full" href="#contact">Get Starter</a></article>
+        <article><small>STARTER</small><h3>Rs 1,499<span>/month</span></h3><p>For an independent salon, barber, gym or service business.</p><ul><li>Professional booking page</li><li>Unlimited bookings</li><li>Customer dashboard</li><li>Services & prices</li><li>Mobile access</li></ul><a className="btn light full" href="#contact">Get Starter</a></article>
         <article className="priceFeatured"><div className="recommended">POPULAR</div><small>PRO</small><h3>Rs 2,999<span>/month</span></h3><p>For businesses that need more control and staff support.</p><ul><li>Everything in Starter</li><li>Multiple staff</li><li>Advanced reporting</li><li>Priority support</li><li>Growth features</li></ul><a className="btn full" href="#contact">Get Pro</a></article>
       </div>
     </section>
@@ -88,6 +118,6 @@ export default function Home(){
       </div>
     </section>
 
-    <footer><div className="wrap footerIn"><a className="brand" href="/"><span>B</span>BusinessFlow</a><p>Booking software for local businesses.</p><small>© 2026 BusinessFlow</small></div></footer>
+    <footer><div className="wrap footerIn"><a className="brand" href="/"><span>B</span>BusinessFlow</a><p>Business software for local businesses.</p><small>© 2026 BusinessFlow</small></div></footer>
   </main>
 }
