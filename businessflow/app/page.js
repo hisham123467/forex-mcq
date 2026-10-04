@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
+import { createClient } from '@supabase/supabase-js'
 
 const services=[
   {name:'Classic Haircut',price:1200,duration:'35 min'},
@@ -27,13 +28,30 @@ export default function Home(){
   useEffect(()=>{try{const x=JSON.parse(localStorage.getItem('bf_bookings')||'[]');if(x.length)setBookings([...x,...seed])}catch{}},[])
   const revenue=useMemo(()=>bookings.reduce((n,b)=>n+Number(b.price||0),0),[bookings])
 
-  function book(e){
+  async function book(e){
     e.preventDefault()
     if(!date||!time||!name||!phone)return
     const b={id:crypto.randomUUID(),time,name,phone,service:services[service].name,price:services[service].price,status:'Confirmed',date}
     const local=[b,...(JSON.parse(localStorage.getItem('bf_bookings')||'[]'))]
     localStorage.setItem('bf_bookings',JSON.stringify(local))
     setBookings([b,...bookings]);setDone(true)
+    try{
+      const url=process.env.NEXT_PUBLIC_SUPABASE_URL
+      const key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+      if(url&&key){
+        const supabase=createClient(url,key)
+        await supabase.from('bookings').insert({
+          business_id:'11111111-1111-4111-8111-111111111111',
+          service_name:services[service].name,
+          price:services[service].price,
+          booking_date:date,
+          booking_time:time,
+          customer_name:name,
+          customer_phone:phone,
+          status:'confirmed'
+        })
+      }
+    }catch{}
   }
   function createBusiness(e){
     e.preventDefault()
