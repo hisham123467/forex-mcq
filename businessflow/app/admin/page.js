@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
 
 const ADMIN_EMAIL='muhammadhishamoraginal@gmail.com'
@@ -11,11 +12,9 @@ const supabase=createClient(
 const emptyService=()=>({name:'',price:'',duration:'30'})
 
 export default function Admin(){
+  const router=useRouter()
   const [user,setUser]=useState(null)
   const [checking,setChecking]=useState(true)
-  const [email,setEmail]=useState(ADMIN_EMAIL)
-  const [password,setPassword]=useState('')
-  const [authMsg,setAuthMsg]=useState('')
   const [businesses,setBusinesses]=useState([])
   const [bookingCount,setBookingCount]=useState(0)
   const [creating,setCreating]=useState(false)
@@ -37,7 +36,10 @@ export default function Admin(){
     const {data:{user:u}}=await supabase.auth.getUser()
     if(u?.email?.toLowerCase()===ADMIN_EMAIL){
       setUser(u); await load(u.id)
-    }else if(u){await supabase.auth.signOut()}
+    }else{
+      if(u) await supabase.auth.signOut()
+      router.replace('/admin-login')
+    }
     setChecking(false)
   }
 
@@ -49,25 +51,6 @@ export default function Admin(){
     ])
     if(!b.error)setBusinesses(b.data||[])
     if(!q.error)setBookingCount(q.count||0)
-  }
-
-  async function login(e){
-    e.preventDefault();setAuthMsg('Signing in…')
-    if(email.trim().toLowerCase()!==ADMIN_EMAIL){setAuthMsg('Access denied for this email.');return}
-    const {data,error}=await supabase.auth.signInWithPassword({email:ADMIN_EMAIL,password})
-    if(error){setAuthMsg(error.message);return}
-    if(data.user?.email?.toLowerCase()!==ADMIN_EMAIL){await supabase.auth.signOut();setAuthMsg('Access denied.');return}
-    setUser(data.user);setAuthMsg('');await load(data.user.id)
-  }
-
-  async function signup(){
-    setAuthMsg('Creating admin account…')
-    if(email.trim().toLowerCase()!==ADMIN_EMAIL){setAuthMsg('Only the authorized Gmail can be used.');return}
-    if(password.length<10){setAuthMsg('Use at least 10 characters for the password.');return}
-    const {data,error}=await supabase.auth.signUp({email:ADMIN_EMAIL,password})
-    if(error){setAuthMsg(error.message);return}
-    if(data.session){setUser(data.user);setAuthMsg('');await load(data.user.id)}
-    else setAuthMsg('Account created. Check your Gmail for the Supabase confirmation email, then come back and sign in.')
   }
 
   async function logout(){await supabase.auth.signOut();setUser(null);setBusinesses([])}
@@ -104,19 +87,7 @@ export default function Admin(){
 
   if(checking)return <main className="adminLoading">Checking admin access…</main>
 
-  if(!user)return <main className="adminLogin">
-    <form className="adminLoginCard" onSubmit={login}>
-      <div className="adminBrand"><span>B</span><b>BusinessFlow Admin</b></div>
-      <small>PRIVATE ACCESS</small>
-      <h1>Admin sign in</h1>
-      <p>Only the authorized BusinessFlow Gmail account can access this dashboard.</p>
-      <label>Email<input type="email" value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email" required/></label>
-      <label>Password<input type="password" value={password} onChange={e=>setPassword(e.target.value)} autoComplete="current-password" required/></label>
-      <button className="btn full">Sign in</button>
-      <button type="button" className="adminTextBtn" onClick={signup}>First time? Create the admin account</button>
-      {authMsg&&<div className="authMsg">{authMsg}</div>}
-    </form>
-  </main>
+  if(!user)return <main className="adminLoading">Redirecting to secure login…</main>
 
   return <main className="adminShell">
     <aside className="adminSide">
