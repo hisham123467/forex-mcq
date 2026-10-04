@@ -15,3 +15,51 @@
 
 @media(max-width:900px){.adminStats{grid-template-columns:1fr 1fr}.adminFormGrid{grid-template-columns:1fr 1fr}.clientGrid{grid-template-columns:1fr}.clientBookCard{margin-top:0}}
 @media(max-width:650px){.adminShell{display:block}.adminSide{display:none}.adminMain{padding:16px}.adminTop{align-items:flex-start;gap:10px}.adminTop h1{font-size:25px}.adminStats{gap:8px}.adminStats>div{padding:14px}.adminFormGrid{grid-template-columns:1fr}.serviceEditRow{grid-template-columns:1fr 90px 80px 35px}.adminCard{padding:15px}.clientHero{height:290px}.clientIdentity{left:18px;bottom:27px}.clientMark{width:58px;height:58px}.clientIdentity h1{font-size:30px}.clientGrid{width:min(100% - 26px,1060px);padding:24px 0 60px}.clientInfo{order:2}.clientBookCard{padding:18px}}
+
+
+/* gym vertical */
+.gymSection{padding:100px 0;background:#fafaf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gymGrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.gymCopy h2{font-size:45px;letter-spacing:-2px;line-height:1.08;margin:0 0 16px}
+.gymCopy>p{font-size:14px;line-height:1.75;color:var(--muted);max-width:560px}
+.gymChecks{display:grid;grid-template-columns:1fr 1fr;gap:9px 18px;margin:26px 0}
+.gymChecks span{font-size:11px;color:#555}
+.gymChecks span:before{content:'✓';font-weight:900;color:var(--green);margin-right:7px}
+.gymPreview{background:#fff;border:1px solid #dfdfda;border-radius:17px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.06)}
+.gymPreviewTop{display:flex;align-items:center;justify-content:space-between;padding-bottom:17px;border-bottom:1px solid #ecece8}
+.gymPreviewTop>div{display:flex;flex-direction:column;gap:4px}
+.gymPreviewTop small{font-size:8px;letter-spacing:1.1px;color:#888}.gymPreviewTop b{font-size:16px}
+.gymPreviewTop>span{font-size:9px;border:1px solid #ddd;border-radius:20px;padding:6px 9px;color:#666}
+.gymMetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:18px 0}
+.gymMetrics>div{background:#fafaf8;border:1px solid #eeeeea;border-radius:10px;padding:13px;display:flex;flex-direction:column}
+.gymMetrics small{font-size:8px;color:#888}.gymMetrics b{font-size:21px;margin:7px 0 3px}.gymMetrics span{font-size:8px;color:#999}
+.gymMiniTable{border:1px solid #ecece8;border-radius:11px;overflow:hidden}
+.gymMiniHead,.gymMiniRow{display:grid;grid-template-columns:1.4fr .7fr .5fr;align-items:center;gap:8px;padding:10px 12px}
+.gymMiniHead{background:#fafaf8;color:#888;font-size:8px}
+.gymMiniRow{border-top:1px solid #efefeb;font-size:9px}
+.gymMiniRow>span:first-child{display:flex;flex-direction:column;gap:3px}.gymMiniRow small{color:#999}
+.gymMiniRow em{justify-self:start;font-style:normal;font-size:8px;border-radius:20px;padding:5px 8px}
+.gymMiniRow em.paid{background:#eef8f1;color:#176f3b}.gymMiniRow em.due{background:#fff3e8;color:#a75b17}
+
+/* gym demo */
+.gymDemoPage{min-height:100vh;background:#f6f6f4;display:grid;grid-template-columns:235px 1fr}
+.gymDemoSide{background:#111;color:#fff;padding:22px 16px;display:flex;flex-direction:column}
+.gymDemoBusiness{padding:28px 4px 20px;border-bottom:1px solid #292929;display:flex;flex-direction:column;gap:5px}
+.gymDemoBusiness small{font-size:8px;color:#888;letter-spacing:1.2px}.gymDemoBusiness b{font-size:13px}.gymDemoBusiness span{font-size:9px;color:#888}
+.gymDemoSide nav{display:grid;gap:5px;padding-top:18px}.gymDemoSide nav button{border:0;background:transparent;color:#999;text-align:left;padding:11px 10px;border-radius:8px;font-size:12px}.gymDemoSide nav button.selected{background:#242424;color:#fff}
+.gymDemoHint{margin-top:auto;padding:16px 5px;border-top:1px solid #292929;font-size:9px;color:#777}
+.gymDemoMain{padding:32px}
+.gymDemoTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.gymDemoTop small{font-size:9px;letter-spacing:1.1px;color:#888}.gymDemoTop h1{font-size:30px;letter-spacing:-1.2px;margin:5px 0}.gymDemoTop p{margin:0;color:#777;font-size:11px}
+.gymDashStats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gymDashStats>div{background:#fff;border:1px solid #e3e3de;border-radius:12px;padding:18px;display:flex;flex-direction:column}
+.gymDashStats span{font-size:9px;color:#777}.gymDashStats b{font-size:25px;margin:7px 0 4px}.gymDashStats small{font-size:8px;color:#999}
+.gymDemoCard{margin-top:16px;background:#fff;border:1px solid #e3e3de;border-radius:13px;padding:20px}
+.gymDemoCardHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.gymDemoCardHead small{font-size:8px;letter-spacing:1px;color:#888}.gymDemoCardHead h2{font-size:18px;margin:4px 0}
+.gymFilters{display:flex;gap:6px}.gymFilters button{border:1px solid #ddd;background:#fff;border-radius:20px;padding:6px 10px;font-size:9px}.gymFilters button.active{background:#111;color:#fff;border-color:#111}
+.gymMemberTableWrap{overflow:auto}.gymMemberTable{width:100%;border-collapse:collapse;font-size:10px}.gymMemberTable th{text-align:left;color:#888;font-size:8px;padding:10px;border-bottom:1px solid #ecece7}.gymMemberTable td{padding:12px 10px;border-bottom:1px solid #f0f0ec}.gymMemberTable td:first-child{display:flex;flex-direction:column;gap:3px}.gymMemberTable td small{color:#999}
+.gymPaidTag,.gymDueTag{display:inline-flex;border-radius:20px;padding:5px 8px;font-size:8px;font-weight:800}.gymPaidTag{background:#eef8f1;color:#176f3b}.gymDueTag{background:#fff3e8;color:#9b5718}.doneText{font-size:9px;color:#888}
+.gymDemoBottom{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.gymDemoBottom>div{background:#fff;border:1px solid #e3e3de;border-radius:12px;padding:20px}.gymDemoBottom small{font-size:8px;letter-spacing:1px;color:#888}.gymDemoBottom h3{font-size:24px;margin:8px 0 5px}.gymDemoBottom p{margin:0;color:#888;font-size:10px}
+
+@media(max-width:900px){.gymGrid{grid-template-columns:1fr}.gymDemoPage{display:block}.gymDemoSide{display:none}.gymDashStats{grid-template-columns:1fr 1fr}.gymDemoMain{padding:20px}}
+@media(max-width:650px){.gymSection{padding:70px 0}.gymCopy h2{font-size:34px}.gymChecks{grid-template-columns:1fr}.gymMetrics{grid-template-columns:1fr 1fr}.gymMetrics>div:last-child{display:none}.gymDemoTop{align-items:flex-start;gap:12px}.gymDemoTop .btn{display:none}.gymDashStats{gap:8px}.gymDashStats>div{padding:14px}.gymDemoCard{padding:13px}.gymDemoCardHead{align-items:flex-start;gap:10px;flex-direction:column}.gymDemoBottom{grid-template-columns:1fr}}
