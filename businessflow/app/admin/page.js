@@ -111,16 +111,16 @@ export default function Admin(){
         <form onSubmit={createBusiness}>
           <div className="adminFormGrid">
             <label>Business name<input value={form.name} onChange={e=>setForm({...form,name:e.target.value})} placeholder="e.g. Elite Salon" required/></label>
-            <label>Type<select value={form.category} onChange={e=>setForm({...form,category:e.target.value})}><option>Barber / Salon</option><option>Beauty Salon</option><option>Clinic</option><option>Workshop</option><option>Consultant</option><option>Other</option></select></label>
+            <label>Type<select value={form.category} onChange={e=>setForm({...form,category:e.target.value})}><option>Barber / Salon</option><option>Beauty Salon</option><option>Gym / Fitness Club</option><option>Clinic</option><option>Workshop</option><option>Consultant</option><option>Other</option></select></label>
             <label>City<input value={form.city} onChange={e=>setForm({...form,city:e.target.value})} required/></label>
             <label>WhatsApp / phone<input value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} placeholder="+92 3xx xxxxxxx"/></label>
           </div>
           <label>Address<input value={form.address} onChange={e=>setForm({...form,address:e.target.value})} placeholder="Area, city"/></label>
 
           <div className="serviceEditor">
-            <div className="serviceEditorHead"><b>Services</b><button type="button" onClick={()=>setServices([...services,emptyService()])}>+ Add service</button></div>
+            <div className="serviceEditorHead"><b>{form.category==='Gym / Fitness Club'?'Membership plans / services':'Services'}</b><button type="button" onClick={()=>setServices([...services,emptyService()])}>+ Add</button></div>
             {services.map((s,i)=><div className="serviceEditRow" key={i}>
-              <input placeholder="Service name" value={s.name} onChange={e=>updateService(i,'name',e.target.value)}/>
+              <input placeholder={form.category==='Gym / Fitness Club'?'e.g. Monthly membership':'Service name'} value={s.name} onChange={e=>updateService(i,'name',e.target.value)}/>
               <input type="number" min="0" placeholder="Price" value={s.price} onChange={e=>updateService(i,'price',e.target.value)}/>
               <input type="number" min="5" placeholder="Minutes" value={s.duration} onChange={e=>updateService(i,'duration',e.target.value)}/>
               <button type="button" onClick={()=>setServices(services.filter((_,n)=>n!==i))}>×</button>
